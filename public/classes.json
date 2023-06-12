@@ -1,0 +1,90 @@
+[
+    {
+        "_id": "642c155b2c4774f05c36eeaa",
+        "name": "Bangla Language",
+        "instructorName": "Monir Dewan",
+        "image": "https://i.ibb.co/jRNshnS/instractor3.jpg",
+        "availableSeats":50,
+        "price": 14.7,
+        "instructorEmail":"monirkhan93@gmail.com"
+    },
+    {
+        "_id": "642c155b2c4774f05c36ecaa",
+        "name": "Bangla Language",
+        "instructorName": "Monir Dewan",
+        "image": "https://i.ibb.co/1byL4d0/instractor1.jpg",
+        "availableSeats": 50,
+        "price": 14.7,
+        "instructorEmail": "monirkhan93@gmail.com"
+      },
+      {
+        "_id": "e05d9f7a77611cd47a2c848b",
+        "name": "English Literature",
+        "instructorName": "Sarah Johnson",
+        "image": "https://i.ibb.co/J7mM02v/instractor2.jpg",
+        "availableSeats": 30,
+        "price": 12.5,
+        "instructorEmail": "sarah.johnson@example.com"
+      },
+      {
+        "_id": "9e8a674f3d2297e6b41f4ac5",
+        "name": "Mathematics",
+        "instructorName": "John Smith",
+        "image": "https://i.ibb.co/1byL4d0/instractor1.jpg",
+        "availableSeats": 20,
+        "price": 20.0,
+        "instructorEmail": "john.smith@example.com"
+      },
+      {
+        "_id": "78c72ebe937f5417d2ef2e96",
+        "name": "Physics 101",
+        "instructorName": "Emily Thompson",
+        "image": "https://i.ibb.co/J7mM02v/instractor2.jpg",
+        "availableSeats": 15,
+        "price": 18.5,
+        "instructorEmail": "emily.thompson@example.com"
+      },
+      {
+        "_id": "fb3a2c961e9c334b9f6864ae",
+        "name": "History of Art",
+        "instructorName": "Michael Johnson",
+        "image": "https://i.ibb.co/1byL4d0/instractor1.jpg",
+        "availableSeats": 25,
+        "price": 16.9,
+        "instructorEmail": "michael.johnson@example.com"
+      },
+      {
+        "_id": "9f482c1d7344aaf82f6a8365",
+        "name": "Spanish Language",
+        "instructorName": "Maria Rodriguez",
+        "image": "https://i.ibb.co/jRNshnS/instractor3.jpg",
+        "availableSeats": 40,
+        "price": 13.2,
+        "instructorEmail": "maria.rodriguez@example.com"
+      },
+      {
+        "_id": "a549d1f8743e603b2380e6e8",
+        "name": "Computer Science",
+        "instructorName": "David Wilson",
+        "image": "https://i.ibb.co/1byL4d0/instractor1.jpg",
+        "availableSeats": 10,
+        "price": 22.5,
+        "instructorEmail": "david.wilson@example.com"
+      },
+      {
+        "_id": "6850f39d56d343e1ae08709d",
+        "name": "Chemistry Basics",
+        "instructorName": "Sophia Anderson",
+        "image": "https://i.ibb.co/J7mM02v/instractor2.jpg",
+        "availableSeats": 35,
+        "price": 17.8,
+        "instructorEmail": "sophia.anderson@example.com"
+      }
+   
+    
+]
+
+
+    
+    
+  
