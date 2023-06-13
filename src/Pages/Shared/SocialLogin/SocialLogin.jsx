@@ -9,6 +9,18 @@ const SocialLogin = () => {
         .then(result =>{
             const loggedUser = result.user;
             console.log(loggedUser)
+            const userData = {name:loggedUser.displayName, email:loggedUser.email, image:loggedUser.photoURL}
+                fetch('http://localhost:5000/users',{
+                    method:"POST",
+                    headers:{
+                        'content-type':'application/json'
+                    },
+                    body:JSON.stringify(userData)
+                })
+                .then(res => res.json())
+                .then(data =>{
+                    console.log(data)
+                })
         })
     }
     return (

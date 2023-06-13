@@ -20,7 +20,7 @@ const Login = () => {
         })
     };
 
-    console.log(watch("example"));
+    
     return (
         <div className='w-1/3 mx-auto my-24 '>
             <h2 className='text-4xl mb-16'>User Login</h2>

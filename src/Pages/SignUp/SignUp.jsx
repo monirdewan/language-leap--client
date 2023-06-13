@@ -20,6 +20,18 @@ const SignUp = () => {
            
             updateUserProfile(data.name, data.photoURL)
             .then(()=>{
+                const userData = {name:data.name, email:data.email, image:data.photoURL}
+                fetch('http://localhost:5000/users',{
+                    method:"POST",
+                    headers:{
+                        'content-type':'application/json'
+                    },
+                    body:JSON.stringify(userData)
+                })
+                .then(res => res.json())
+                .then(data =>{
+                    console.log(data)
+                })
                 console.log("user Profile Updated")
                 reset()
             })
