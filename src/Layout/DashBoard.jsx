@@ -1,8 +1,33 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link, Outlet } from 'react-router-dom';
+
+import { AuthContext } from '../Providers/AuthProviders';
+import useSingleUser from '../hook/useSingleUser';
 
 
 const DashBoard = () => {
+  //const [singleUser,isLoading] = useSingleUser()
+  const {user, loading} = useContext(AuthContext)
+  const [singleUser, setSingleUser] = useState([])
+    const [userLoading, setUserLoading] = useState(true)
+   
+
+    useEffect(()=>{
+      if(loading){
+        return
+      }
+        fetch(`http://localhost:5000/users/${user?.email}`)
+        .then(res => res.json())
+        .then(data =>{
+            setSingleUser(data)
+            setUserLoading(false)
+        })
+    },[user])
+    if(userLoading){
+      return
+    }
+    console.log("single User",singleUser)
+
     return (
         <div className="drawer lg:drawer-open">
   <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />

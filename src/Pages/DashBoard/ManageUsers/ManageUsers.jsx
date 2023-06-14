@@ -5,6 +5,15 @@ const ManageUsers = () => {
     const [users, , refetch] = useAllUser();
 
     const handleMakeInstructor = user =>{
+        fetch(`http://localhost:5000/users/instructor/${user._id}`,{
+            method:'PATCH'
+        })
+        .then(res => res.json())
+        .then(data =>{
+            if(data.modifiedCount){
+                refetch()
+            }
+        })
 
     }
 
@@ -51,7 +60,7 @@ const ManageUsers = () => {
                                 </div>
                             </td>
                             <td>{user.email}</td>
-                            <td><button onClick={()=>handleMakeInstructor(user)} className="rounded text-[14px] font-semibold transition hover:bg-[#0446a3] text-white bg-[#2878EB] btn-sm">Instructor</button></td>
+                            <td><button style={user?.instructor && {backgroundColor:"gray"}} disabled={user.instructor} onClick={()=>handleMakeInstructor(user)} className="rounded text-[14px] font-semibold transition hover:bg-[#0446a3] text-white bg-[#2878EB] btn-sm">Instructor</button></td>
                             <td><button style={user?.admin && {backgroundColor:"gray"}} disabled={user.admin} onClick={()=>handleMakeAdmin(user)} className="rounded text-[14px]  font-semibold transition hover:bg-[#0446a3] text-white bg-[#2878EB] btn-sm">Admin</button></td>
                         </tr>)
                        }
