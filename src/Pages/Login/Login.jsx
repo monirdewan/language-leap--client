@@ -14,6 +14,7 @@ const Login = () => {
         .then(result =>{
             const loggedUser = result.user;
             console.log(loggedUser)
+            setError('')
         })
         .catch(error =>{
             setError(error.message)

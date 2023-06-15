@@ -1,5 +1,5 @@
 import React from 'react';
-import useAllUser from '../../../hook/useAllUser';
+import useAllUser from './../../../hook/useAllUser';
 
 const ManageUsers = () => {
     const [users, , refetch] = useAllUser();

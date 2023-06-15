@@ -1,18 +1,25 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Tooltip } from 'react-tooltip'
 import logo from '../../../assets/logo.png';
 import { AuthContext } from '../../../Providers/AuthProviders';
+import useSingleUser from '../../../hook/useSingleUser';
 
 const Navbar = () => {
-  const { user, logOut } = useContext(AuthContext)
+  const [singleUser, isLoading] = useSingleUser()
+  const { user, logOut,loading } = useContext(AuthContext)
+  
   const navItem = <>
     <li><Link to='/'>Home</Link></li>
     <li><Link to='/'>Instructors</Link></li>
     <li><Link to='/'>Classes</Link></li>
     {
       user && <>
-        <li><Link to='/dashboard'>Dashboard</Link></li>
+        <li>
+          {
+            singleUser?.admin?<Link to='/dashboard/adminhome'>Dashboard</Link>:singleUser?.instructor?<Link to='/dashboard/instructorhome'>Dashboard</Link>:<Link to='/dashboard/studenthome'>Dashboard</Link>
+          }
+        </li>
       </>
     }
 

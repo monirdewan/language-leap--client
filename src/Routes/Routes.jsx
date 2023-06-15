@@ -7,6 +7,10 @@ import SignUp from "../Pages/SignUp/SignUp"
 import Login from "../Pages/Login/Login";
 import DashBoard from "../Layout/DashBoard";
 import ManageUsers from "../Pages/DashBoard/ManageUsers/ManageUsers";
+import AdminHome from "../Pages/DashBoard/AdminHome/AdminHome";
+import InstructorHome from "../Pages/DashBoard/InstructorHome/InstructorHome";
+import StudentHome from "../Pages/DashBoard/StudentHome/StudentHome";
+import AddClass from "../Pages/DashBoard/AddClass/AddClass";
 
 
 
@@ -33,9 +37,29 @@ import ManageUsers from "../Pages/DashBoard/ManageUsers/ManageUsers";
       path:'dashboard',
       element:<DashBoard></DashBoard>,
       children:[
+        //admin
+        {
+          path:'adminhome',
+          element:<AdminHome></AdminHome>
+        },
         {
           path:'manageusers',
           element:<ManageUsers></ManageUsers>
+        },
+        //Instructor
+        {
+          path:'instructorhome',
+          element:<InstructorHome></InstructorHome>
+        },
+        {
+          path:'addaclass',
+          element:<AddClass></AddClass>
+        },
+
+        //Student
+        {
+          path:'studenthome',
+          element:<StudentHome></StudentHome>
         }
       ]
     }
