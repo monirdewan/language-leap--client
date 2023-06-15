@@ -60,7 +60,7 @@ const ManageUsers = () => {
                                     </div>
                                 </div>
                             </td>
-                            <td>{user.email}</td>
+                            <td><p>{user.email}</p></td>
                             <td><button style={user?.instructor && {backgroundColor:"gray"}} disabled={user.instructor} onClick={()=>handleMakeInstructor(user)} className="rounded text-[14px] font-semibold transition hover:bg-[#0446a3] text-white bg-[#2878EB] btn-sm">Instructor</button></td>
                             <td><button style={user?.admin && {backgroundColor:"gray"}} disabled={user.admin} onClick={()=>handleMakeAdmin(user)} className="rounded text-[14px]  font-semibold transition hover:bg-[#0446a3] text-white bg-[#2878EB] btn-sm">Admin</button></td>
                         </tr>)
