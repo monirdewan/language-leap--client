@@ -1,6 +1,7 @@
 import React from 'react';
 import {useForm } from 'react-hook-form';
 import useSingleUser from '../../../hook/useSingleUser';
+import useAxios from '../../../hook/useAxios';
 const img_hosting_token = import.meta.env.VITE_IMAGE_UPLOAD;
 
 const AddClass = () => {
@@ -8,6 +9,7 @@ const AddClass = () => {
     if(isLoading){
         return
     }
+    const [axiosSecure] = useAxios();
     const {email, name} = singleUser[0];
     const { register, handleSubmit,reset, } = useForm();
     const img_hosting_url = `https://api.imgbb.com/1/upload?key=${img_hosting_token}`
@@ -27,6 +29,10 @@ const AddClass = () => {
             const {cName,cImage,iName,iEmail,aSeats,price} = data;
             const newClass = {cName, cImage:imageURL, iName, iEmail, aSeats, price:parseFloat(price), status:'pending'}
             console.log(newClass)
+            axiosSecure.post('/classes', newClass)
+            .then(data =>{
+                console.log('after posting new menu item', data.data)
+            })
            }
         })
     };
