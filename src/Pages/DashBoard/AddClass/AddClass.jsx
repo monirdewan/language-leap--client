@@ -1,8 +1,10 @@
 import React from 'react';
-import { useForm } from 'react-hook-form';
+import {Form, useForm } from 'react-hook-form';
+const img_hosting_token = import.meta.env.VITE_IMAGE_UPLOAD;
 
 const AddClass = () => {
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const { register, handleSubmit,reset, } = useForm();
+    const img_hosting_url = `https://api.imgbb.com/1/upload?key=${img_hosting_token}`
 
     const onSubmit = data => {
         console.log(data)

@@ -6,33 +6,19 @@ import useSingleUser from '../hook/useSingleUser';
 
 
 const DashBoard = () => {
-  //const [singleUser,isLoading] = useSingleUser()
-  const { user, loading } = useContext(AuthContext)
-  const [singleUser, setSingleUser] = useState([])
-  const [userLoading, setUserLoading] = useState(true)
-
-
-  useEffect(() => {
-    if (loading) {
-      return
-    }
-    fetch(`http://localhost:5000/users/${user?.email}`)
-      .then(res => res.json())
-      .then(data => {
-        setSingleUser(data)
-        setUserLoading(false)
-      })
-  }, [user])
-  if (userLoading) {
+  const [singleUser,isLoading] = useSingleUser()
+  if(isLoading){
     return
   }
-  console.log("single User", singleUser)
+ 
 
   return (
 
     <div>
+    
       {
-        singleUser.admin ?  <div className="drawer lg:drawer-open">
+        
+        singleUser[0].admin ?  <div className="drawer lg:drawer-open">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col items-center justify-center">
           {/* Page content here */}
@@ -54,7 +40,7 @@ const DashBoard = () => {
           </ul>
   
         </div>
-      </div> : singleUser.instructor ?  <div className="drawer lg:drawer-open">
+      </div> : singleUser[0].instructor ?  <div className="drawer lg:drawer-open">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content flex flex-col items-center justify-center">
         {/* Page content here */}

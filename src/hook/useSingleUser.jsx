@@ -4,25 +4,13 @@ import { AuthContext } from './../Providers/AuthProviders';
 
 const useSingleUser = () => {
      const {user,loading} = useContext(AuthContext)
-    // const [singleUser, setSingleUser] = useState([])
-    // const [userLoading, setUserLoading] = useState(true)
-    // if(loading){
-    //     return
-    // }
 
-    // useEffect(()=>{
-    //     fetch(`http://localhost:5000/users/${user?.email}`)
-    //     .then(res => res.json())
-    //     .then(data =>{
-    //         setSingleUser(data)
-    //         setUserLoading(false)
-    //     })
-    // },[])
-
-   const {data:singleUser, isLoading, refetch} = useQuery({
+   const {data:singleUser=[], isLoading, refetch} = useQuery({
+   
     queryKey:['singleUser', user?.email],
+    enabled:!loading,
     queryFn: async()=>{
-        const res = await fetch(`http://localhost:5000/users?email=${user?.email}`)
+        const res = await fetch(`http://localhost:5000/userroll?email=${user?.email}`)
         return res.json()
     }
    })

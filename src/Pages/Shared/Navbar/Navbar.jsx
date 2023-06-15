@@ -8,7 +8,9 @@ import useSingleUser from '../../../hook/useSingleUser';
 const Navbar = () => {
   const [singleUser, isLoading] = useSingleUser()
   const { user, logOut,loading } = useContext(AuthContext)
-  
+  if(isLoading){
+    return
+  }
   const navItem = <>
     <li><Link to='/'>Home</Link></li>
     <li><Link to='/'>Instructors</Link></li>
@@ -17,7 +19,7 @@ const Navbar = () => {
       user && <>
         <li>
           {
-            singleUser?.admin?<Link to='/dashboard/adminhome'>Dashboard</Link>:singleUser?.instructor?<Link to='/dashboard/instructorhome'>Dashboard</Link>:<Link to='/dashboard/studenthome'>Dashboard</Link>
+            singleUser[0]?.admin?<Link to='/dashboard/adminhome'>Dashboard</Link>:singleUser[0]?.instructor?<Link to='/dashboard/instructorhome'>Dashboard</Link>:<Link to='/dashboard/studenthome'>Dashboard</Link>
           }
         </li>
       </>
