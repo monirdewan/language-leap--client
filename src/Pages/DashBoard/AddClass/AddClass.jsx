@@ -32,6 +32,7 @@ const AddClass = () => {
             axiosSecure.post('/classes', newClass)
             .then(data =>{
                 console.log('after posting new menu item', data.data)
+                reset()
             })
            }
         })

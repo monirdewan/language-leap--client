@@ -16,6 +16,7 @@ const ManageUsers = () => {
         })
 
     }
+  
 
     const handleMakeAdmin = user =>{
         fetch(`http://localhost:5000/users/admin/${user._id}`,{

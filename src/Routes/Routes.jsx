@@ -11,6 +11,7 @@ import AdminHome from "../Pages/DashBoard/AdminHome/AdminHome";
 import InstructorHome from "../Pages/DashBoard/InstructorHome/InstructorHome";
 import StudentHome from "../Pages/DashBoard/StudentHome/StudentHome";
 import AddClass from "../Pages/DashBoard/AddClass/AddClass";
+import MyClasses from "../Pages/DashBoard/MyClasses/MyClasses";
 
 
 
@@ -54,6 +55,10 @@ import AddClass from "../Pages/DashBoard/AddClass/AddClass";
         {
           path:'addaclass',
           element:<AddClass></AddClass>
+        },
+        {
+          path:'myclasses',
+          element:<MyClasses></MyClasses>
         },
 
         //Student
