@@ -13,6 +13,7 @@ import StudentHome from "../Pages/DashBoard/StudentHome/StudentHome";
 import AddClass from "../Pages/DashBoard/AddClass/AddClass";
 import MyClasses from "../Pages/DashBoard/MyClasses/MyClasses";
 import ManageClasses from "../Pages/DashBoard/ManageClasses/ManageClasses";
+import Instructors from "../Pages/Instructors/Instructors";
 
 
 
@@ -24,6 +25,10 @@ import ManageClasses from "../Pages/DashBoard/ManageClasses/ManageClasses";
         {
            path:'/',
            element:<Home></Home> 
+        },
+        {
+          path:'instructors',
+          element:<Instructors></Instructors>
         },
         {
           path:'login',
@@ -65,6 +70,7 @@ import ManageClasses from "../Pages/DashBoard/ManageClasses/ManageClasses";
           path:'myclasses',
           element:<MyClasses></MyClasses>
         },
+       
 
         //Student
         {
