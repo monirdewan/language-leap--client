@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ClassCard = ({ data }) => {
+const InstructorCard = ({data}) => {
     const {cName,iName,cImage,aSeats,price} = data;
     return (
         <div className="card w-96 bg-base-100 shadow-xl">
@@ -18,4 +18,4 @@ const ClassCard = ({ data }) => {
     );
 };
 
-export default ClassCard;
+export default InstructorCard;

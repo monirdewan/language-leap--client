@@ -6,18 +6,19 @@ const PopularClasses = () => {
     const [classInfo, setClassInfo] = useState([]);
 
     useEffect(()=>{
-        fetch('classes.json')
+        fetch('http://localhost:5000/classes')
         .then(res => res.json())
         .then(data =>{
-            const limit = data.slice(0,6)
+            const approvedClass = data.filter(aClass => aClass.status == 'approved')
+            const limit = approvedClass.slice(0,6)
             setClassInfo(limit)
         })
     },[])
     return (
-        <section>
+        <section className='my-28'>
             <SectionTitle heading='Popular Classes' subHeading='Explore Our'></SectionTitle>
 
-            <div className='grid grid-cols-1 md:grid-cols-3'>
+            <div className='grid grid-cols-1 md:grid-cols-3 mt-24'>
                 {
                     classInfo.map(data =><ClassCard key={data._id} data={data}></ClassCard>)
                 }
