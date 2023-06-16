@@ -1,8 +1,19 @@
 import React from 'react';
 import useAllClasses from '../../../hook/useAllClasses';
+import useAxios from '../../../hook/useAxios';
 
 const ManageClasses = () => {
   const [allClasses, isLoading, refetch] = useAllClasses();
+  const [axiosSecure] = useAxios();
+
+  const updateStatus = (id, status)=>{
+    const statusInfo = {status}
+    axiosSecure.put(`/updtstatus/${id}`, statusInfo)
+    .then(data =>{
+      console.log(data.data)
+      refetch()
+    })
+  }
 
   return (
     <div className='w-full'>
@@ -42,8 +53,8 @@ const ManageClasses = () => {
                 <td>${item.price}</td>
                 <td>{item.status}</td>
                
-                  <td><button className="btn btn-ghost btn-xs">Approve</button></td>
-                 <td> <button className="btn btn-ghost btn-xs">Deny</button></td>
+                  <td><button onClick={()=>updateStatus(item._id, "approved")} className="btn btn-ghost btn-xs">Approve</button></td>
+                 <td> <button onClick={()=>updateStatus(item._id, "deny")} className="btn btn-ghost btn-xs">Deny</button></td>
                  <td> <button className="btn btn-ghost btn-xs">Feedback</button></td>
                
               </tr>)
