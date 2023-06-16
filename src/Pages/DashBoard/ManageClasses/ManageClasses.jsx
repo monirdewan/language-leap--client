@@ -1,6 +1,7 @@
 import React from 'react';
 import useAllClasses from '../../../hook/useAllClasses';
 import useAxios from '../../../hook/useAxios';
+import Swal from 'sweetalert2';
 
 const ManageClasses = () => {
   const [allClasses, isLoading, refetch] = useAllClasses();
@@ -13,6 +14,28 @@ const ManageClasses = () => {
       console.log(data.data)
       refetch()
     })
+  }
+
+  const updateFeedback =async (id)=>{
+    const { value: text } = await Swal.fire({
+      input: 'textarea',
+      inputLabel: 'Message',
+      inputPlaceholder: 'Type your message here...',
+      inputAttributes: {
+        'aria-label': 'Type your message here'
+      },
+      showCancelButton: true
+    })
+    
+    if (text) {
+      const feedbackText = {text}
+      console.log(feedbackText)
+      axiosSecure.patch(`/addfeedback/${id}`, feedbackText)
+      .then(data =>{
+        console.log(data)
+        refetch()
+      })
+    }
   }
 
   return (
@@ -55,7 +78,7 @@ const ManageClasses = () => {
                
                   <td><button onClick={()=>updateStatus(item._id, "approved")} className="btn btn-ghost btn-xs">Approve</button></td>
                  <td> <button onClick={()=>updateStatus(item._id, "deny")} className="btn btn-ghost btn-xs">Deny</button></td>
-                 <td> <button className="btn btn-ghost btn-xs">Feedback</button></td>
+                 <td> <button onClick={()=>updateFeedback(item._id)} className="btn btn-ghost btn-xs">Feedback</button></td>
                
               </tr>)
             }
