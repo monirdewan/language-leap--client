@@ -1,10 +1,14 @@
 import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProviders';
 import SocialLogin from '../Shared/SocialLogin/SocialLogin';
 
 const Login = () => {
+    const location = useLocation();
+    const navigate = useNavigate()
+    const from = location.state?.from?.pathname || '/';
+    console.log(from)
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const {loginUser} = useContext(AuthContext)
     const [error, setError] = useState('');
@@ -13,8 +17,8 @@ const Login = () => {
         loginUser(data.email, data.password)
         .then(result =>{
             const loggedUser = result.user;
-            console.log(loggedUser)
             setError('')
+            navigate(from ,{replace:true})
         })
         .catch(error =>{
             setError(error.message)
@@ -44,9 +48,7 @@ const Login = () => {
                    
 
                 
-                {/* errors will return when field validation fails  */}
-                {errors.exampleRequired && <span>This field is required</span>}
-
+                
                 <input className='btn btn-primary mt-4' value='Login' type="submit" />
             </form>
             <p className='mt-4'>Don't have an Account? <Link className='text-[#2878EB] font-semibold' to='/signup'>Sign Up</Link></p>

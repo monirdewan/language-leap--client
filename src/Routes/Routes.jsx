@@ -15,6 +15,7 @@ import MyClasses from "../Pages/DashBoard/MyClasses/MyClasses";
 import ManageClasses from "../Pages/DashBoard/ManageClasses/ManageClasses";
 import Instructors from "../Pages/Instructors/Instructors";
 import Classes from "../Pages/Classes/Classes";
+import PrivateRoute from "./PrivateRoute";
 
 
 
@@ -47,7 +48,7 @@ import Classes from "../Pages/Classes/Classes";
     },
     {
       path:'dashboard',
-      element:<DashBoard></DashBoard>,
+      element:<PrivateRoute><DashBoard></DashBoard></PrivateRoute>,
       children:[
         //admin
         {

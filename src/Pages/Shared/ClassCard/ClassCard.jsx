@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const ClassCard = ({ data }) => {
     const {cName,iName,cImage,aSeats,price} = data;
@@ -11,7 +12,7 @@ const ClassCard = ({ data }) => {
                 <p>Available Seats: {aSeats}</p>
                 <p>Price: ${price}</p>
                 <div className="card-actions ">
-                    <button className="btn btn-primary">Select Class</button>
+                    <Link to='/dashboard/studenthome'><button className="btn btn-primary">Select Class</button></Link>
                 </div>
             </div>
         </div>
