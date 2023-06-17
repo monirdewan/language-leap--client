@@ -10,7 +10,7 @@ const useSingleUser = () => {
     queryKey:['singleUser', user?.email],
     enabled:!loading,
     queryFn: async()=>{
-        const res = await fetch(`http://localhost:5000/userroll?email=${user?.email}`)
+        const res = await fetch(`https://language-leap-server.vercel.app/userroll?email=${user?.email}`)
         return res.json()
     }
    })

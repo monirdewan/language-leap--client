@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProviders';
 import SocialLogin from '../Shared/SocialLogin/SocialLogin';
+import Swal from 'sweetalert2';
 
 const Login = () => {
     const location = useLocation();
@@ -19,6 +20,13 @@ const Login = () => {
             const loggedUser = result.user;
             setError('')
             navigate(from ,{replace:true})
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'Login SuccessFull',
+                showConfirmButton: false,
+                timer: 2500
+              })
         })
         .catch(error =>{
             setError(error.message)

@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProviders';
 import SocialLogin from '../Shared/SocialLogin/SocialLogin';
+import Swal from 'sweetalert2';
 
 const SignUp = () => {
     const [error, setError] = useState('');
@@ -21,7 +22,7 @@ const SignUp = () => {
             updateUserProfile(data.name, data.photoURL)
             .then(()=>{
                 const userData = {name:data.name, email:data.email, image:data.photoURL}
-                fetch('http://localhost:5000/users',{
+                fetch('https://language-leap-server.vercel.app/users',{
                     method:"POST",
                     headers:{
                         'content-type':'application/json'
@@ -30,7 +31,13 @@ const SignUp = () => {
                 })
                 .then(res => res.json())
                 .then(data =>{
-                    console.log(data)
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: 'Your Account Created SuccessFull',
+                        showConfirmButton: false,
+                        timer: 2500
+                      })
                 })
                 console.log("user Profile Updated")
                 reset()

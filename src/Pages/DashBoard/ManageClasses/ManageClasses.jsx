@@ -33,6 +33,15 @@ const ManageClasses = () => {
       axiosSecure.patch(`/addfeedback/${id}`, feedbackText)
       .then(data =>{
         console.log(data)
+        if(data.status == 200){
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Your feedback has been saved',
+            showConfirmButton: false,
+            timer: 1500
+          })
+        }
         refetch()
       })
     }
@@ -74,11 +83,11 @@ const ManageClasses = () => {
                 <td><small>{item.iEmail}</small></td>
                 <td>{item.aSeats}</td>
                 <td>${item.price}</td>
-                <td>{item.status}</td>
+                <td><p style={item.status == 'pending'?{color:'orange'}:item.status == 'deny'?{color:'red'}:{color:'green'}}>{item.status}</p></td>
                
-                  <td><button onClick={()=>updateStatus(item._id, "approved")} className="btn btn-ghost btn-xs">Approve</button></td>
-                 <td> <button onClick={()=>updateStatus(item._id, "deny")} className="btn btn-ghost btn-xs">Deny</button></td>
-                 <td> <button onClick={()=>updateFeedback(item._id)} className="btn btn-ghost btn-xs">Feedback</button></td>
+                  <td ><button style={item.status == 'approved'?{backgroundColor:'gray'}:item.status == 'deny'?{backgroundColor:'gray'}:{color:''}} disabled={item.status == 'approved' || item.status == 'deny'}   onClick={()=>updateStatus(item._id, "approved")} className="rounded text-[14px]  font-semibold transition hover:bg-[#0446a3] text-white bg-[#2878EB] btn-sm">Approve</button></td>
+                 <td> <button style={item.status == 'approved'?{backgroundColor:'gray'}:item.status == 'deny'?{backgroundColor:'gray'}:{color:''}} disabled={item.status == 'approved' || item.status == 'deny'} onClick={()=>updateStatus(item._id, "deny")} className="rounded text-[14px]  font-semibold transition hover:bg-[#0446a3] text-white bg-[#2878EB] btn-sm">Deny</button></td>
+                 <td> <button onClick={()=>updateFeedback(item._id)} className="rounded text-[14px]  font-semibold transition hover:bg-[#0446a3] text-white bg-[#2878EB] btn-sm">Feedback</button></td>
                
               </tr>)
             }

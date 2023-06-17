@@ -2,6 +2,7 @@ import React from 'react';
 import {useForm } from 'react-hook-form';
 import useSingleUser from '../../../hook/useSingleUser';
 import useAxios from '../../../hook/useAxios';
+import Swal from 'sweetalert2';
 const img_hosting_token = import.meta.env.VITE_IMAGE_UPLOAD;
 
 const AddClass = () => {
@@ -31,7 +32,14 @@ const AddClass = () => {
             console.log(newClass)
             axiosSecure.post('/classes', newClass)
             .then(data =>{
-                console.log('after posting new menu item', data.data)
+                console.log('after posting new classes item', data.data)
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Your Class Added Successfully',
+                    showConfirmButton: false,
+                    timer: 1500
+                  })
                 reset()
             })
            }

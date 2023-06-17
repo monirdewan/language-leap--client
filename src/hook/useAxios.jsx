@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 
 const axiosSecure = axios.create({
-    baseURL: 'http://localhost:5000', 
+    baseURL: 'https://language-leap-server.vercel.app', 
   });
 const useAxios = () => {
     return [axiosSecure]

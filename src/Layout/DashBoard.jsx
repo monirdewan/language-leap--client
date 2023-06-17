@@ -1,5 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Link, Outlet } from 'react-router-dom';
+import { FaHome,FaAddressBook,FaUserAlt } from 'react-icons/fa';
+import { AiFillFolderAdd } from 'react-icons/ai';
+
 
 import { AuthContext } from '../Providers/AuthProviders';
 import useSingleUser from '../hook/useSingleUser';
@@ -33,10 +36,11 @@ const DashBoard = () => {
           <h4 className='text-2xl text-white p-4 m-4'>Admin DashBoard</h4>
           <ul className="menu p-4 w-80 h-full text-white text-[18px]">
             {/* Sidebar content here */}
-            <li><Link to='/dashboard/adminhome'>Admin Home</Link></li>
-            <li><Link to='/dashboard/manageclasses'>Manage Classes</Link></li>
-            <li><Link to='/dashboard/manageusers'>Manage Users</Link></li>
-  
+            <li><Link to='/dashboard/adminhome'><FaHome/>Admin Home</Link></li>
+            <li><Link to='/dashboard/manageclasses'><FaAddressBook/> Manage Classes</Link></li>
+            <li><Link to='/dashboard/manageusers'><FaUserAlt/> Manage Users</Link></li>
+            <div className="divider"></div> 
+            <li><Link to='/'>Home</Link></li>
           </ul>
   
         </div>
@@ -55,9 +59,11 @@ const DashBoard = () => {
         <h4 className='text-2xl text-white p-4 m-4'>Instructor DashBoard</h4>
         <ul className="menu p-4 w-80 h-full text-white text-[18px]">
           {/* Sidebar content here */}
-          <li><Link to='/dashboard/instructorhome'>Instructor Home</Link></li>
-          <li><Link to='/dashboard/addaclass'>Add a Class</Link></li>
-          <li><Link to='/dashboard/myclasses'>My Classes</Link></li>
+          <li><Link to='/dashboard/instructorhome'><FaHome/> Instructor Home</Link></li>
+          <li><Link to='/dashboard/addaclass'><AiFillFolderAdd/> Add a Class</Link></li>
+          <li><Link to='/dashboard/myclasses'><FaAddressBook/> My Classes</Link></li>
+          <div className="divider"></div> 
+            <li><Link to='/'>Home</Link></li>
 
         </ul>
 
@@ -79,6 +85,8 @@ const DashBoard = () => {
           {/* Sidebar content here */}
           <li><Link to='/dashboard/manageclasses'>My Selected Classes</Link></li>
           <li><Link to='/dashboard/manageusers'>My Enrolled Classes</Link></li>
+          <div className="divider"></div> 
+            <li><Link to='/'>Home</Link></li>
 
         </ul>
 

@@ -5,7 +5,7 @@ const useAllClasses = () => {
    const {data:allClasses=[], isLoading, refetch } = useQuery({
     queryKey:['allClasses'],
     queryFn: async()=>{
-        const res = await fetch('http://localhost:5000/classes')
+        const res = await fetch('https://language-leap-server.vercel.app/classes')
         return res.json()
     }
    });

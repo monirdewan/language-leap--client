@@ -11,7 +11,7 @@ const PopularInstructors = () => {
     return (
         <div className='mb-24'>
             <SectionTitle heading="Popular Instructors" subHeading="Our Most"></SectionTitle>
-            <div className='grid grid-cols-1 md:grid-cols-3 mt-24'>
+            <div className='grid grid-cols-1 md:grid-cols-3 gap-8 mt-24'>
             {
                 limit.map(data => <InstructorCard key={data._id} data={data}></InstructorCard>)
             }

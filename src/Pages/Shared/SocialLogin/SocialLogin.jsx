@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { FcGoogle } from 'react-icons/fc';
 import { AuthContext } from '../../../Providers/AuthProviders';
 import { useLocation, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const SocialLogin = () => {
     const {googleSignIn} = useContext(AuthContext);
@@ -14,7 +15,7 @@ const SocialLogin = () => {
             const loggedUser = result.user;
             console.log(loggedUser)
             const userData = {name:loggedUser.displayName, email:loggedUser.email, image:loggedUser.photoURL}
-                fetch('http://localhost:5000/users',{
+                fetch('https://language-leap-server.vercel.app/users',{
                     method:"POST",
                     headers:{
                         'content-type':'application/json'
@@ -24,6 +25,13 @@ const SocialLogin = () => {
                 .then(res => res.json())
                 .then(data =>{
                     navigate(from, {replace:true})
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: 'Your Google Login  SuccessFull',
+                        showConfirmButton: false,
+                        timer: 2500
+                      })
                 })
         })
     }
