@@ -7,7 +7,7 @@ import { BiUser } from "react-icons/bi";
 
 const WhyChose = () => {
     return (
-        <div className='grid grid-cols-1 md:grid-cols-2 space-x-4 items-center'>
+        <div className='grid grid-cols-1 md:grid-cols-2 space-x-4 items-center mb-24'>
             <div>
                 <img src={img} alt="" />
             </div>
